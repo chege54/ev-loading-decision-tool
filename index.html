@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ElasticNetCV Hyperparameter Finder</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    
+    <py-config>
+        packages = ["scikit-learn", "pandas"]
+    </py-config>
+
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 600px; }
+        textarea { width: 100%; font-family: monospace; margin-bottom: 10px; }
+        button { padding: 10px 15px; cursor: pointer; }
+        #result_box { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Train ElasticNetCV</h2>
+    <p>Paste your CSV data below. The script assumes the last column is your target variable (y).</p>
+    
+    <textarea id="csv_input" rows="12">
+feature_a,feature_b,feature_c,target
+1.2,3.4,0.5,10.5
+2.1,1.1,0.2,8.0
+3.3,0.5,1.1,12.1
+4.1,2.2,0.9,15.3
+5.0,1.9,1.5,18.2
+    </textarea>
+    
+    <button py-click="train">Find Best Hyperparameters</button>
+    <div id="result_box">Results will appear here...</div>
+
+    <script type="py" src="./py-script.py"></script>
+</body>
+</html>
